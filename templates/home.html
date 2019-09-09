@@ -1,0 +1,18 @@
+{% extends 'layout.html'  %}
+
+{% block body %}
+
+<h1>Brew Logs</h1>
+<ul class="list-group">
+{% for rev in brew_reviews %}
+<div class="card text-white bg-dark mb-3">
+  <h5 class="card-header">{{rev.name}}</h5>
+  <div class="card-body">
+      <h5 class="card-title">{{rev.btype}}  ABV:{{rev.abv}}</h5>
+      <p class="card-text">Rating: {{rev.rating}}</p>
+      <p class="card-text">Location: {{rev.location}}</p>
+  </div>
+</div>
+{% endfor  %}
+</ul>
+{% endblock %}

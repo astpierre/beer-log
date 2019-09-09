@@ -1,0 +1,35 @@
+{% extends 'layout.html'  %}
+
+{% block body %}
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+      <form  action="" method="post" role="form">
+        {{ form.csrf }}
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Lagunitas IPA">
+            <br>
+          <label for="btype">Type:</label>
+          <input type="text" class="form-control" id="btype" name="btype" placeholder="IPA">
+            <br>
+          <label for="abv">ABV:</label>
+          <input type="text" class="form-control" id="abv" name="abv" placeholder="6.2">
+            <br>
+          <label for="rating">Rating:</label>
+          <input type="text" class="form-control" id="rating" name="rating" placeholder="7.8">
+            <br>
+          <label for="location">Location:</label>
+          <input type="text" class="form-control" id="location" name="location" placeholder="San Francisco, CA">
+        </div>
+        <br>													   
+        <center>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </center>
+      </form>
+    </div>
+    <br>
+    </div>
+    </div>
+
+{% endblock %}
