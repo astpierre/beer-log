@@ -8,9 +8,9 @@
 <div class="card text-white bg-dark mb-3">
   <h5 class="card-header">{{rev.name}}</h5>
   <div class="card-body">
-      <h5 class="card-title">{{rev.btype}}  ABV:{{rev.abv}}</h5>
-      <p class="card-text">Rating: {{rev.rating}}</p>
-      <p class="card-text">Location: {{rev.location}}</p>
+      <h5 class="card-title"><strong>{{rev.btype}}</strong>   <i><small>ABV: {{rev.abv}}</small></i></h5>
+      <p class="card-text"><strong>Rating:</strong> {{rev.rating}}/10.0</p>
+      <p class="card-text"><strong>Location:</strong> {{rev.location}}</p>
   </div>
 </div>
 {% endfor  %}

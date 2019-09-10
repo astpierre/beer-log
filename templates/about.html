@@ -1,7 +1,24 @@
-{% extends 'layout.html'  %}
+{% extends 'map.html'  %}
 
 {% block body %}
 
-About
+<div id="brewmap" style="height: 400px;">
+    <script type="text/javascript">
+        // The first parameter are the coordinates of the center of the map
+        // The second parameter is the zoom level
+        var maxBounds = L.latLngBounds(
+        L.latLng(48.163716, -136.469664),
+        L.latLng(47.089261, -67.411306),
+        L.latLng(30.097590, -125.920276),
+        L.latLng(24.577592, -79.612971),
+        );
+        var map = L.map('brewmap');
+        map.setMaxBounds(maxBounds);
+        map.fitBounds(maxBounds);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>', maxZoom: 8, id: 'mapbox.streets', accessToken: 'pk.eyJ1IjoiYXN0cGllcnJlIiwiYSI6ImNrMGVmejR0NTBobmczbnA4dzhiYjdrM2wifQ.4xOlWZf-vafaV7sBLpZ2QA'}).addTo(map);
+
+    </script>
+</div>
 
 {% endblock %}

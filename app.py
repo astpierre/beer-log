@@ -4,6 +4,7 @@ from time import strftime
 from data import getBrewReviews
 import boto3
 import uuid
+import folium
 
 app = Flask(__name__, template_folder='templates')
 
@@ -55,7 +56,25 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    start_coords = (39.8333333, -98.585522)
+    brewmap = folium.Map(location=start_coords, zoom_start=4.4)
+    folium.Marker(
+        location=[37.7749, -122.4194],
+        popup='Lagunitas IPA',
+        icon=folium.Icon(icon='beer', prefix='fa')
+    ).add_to(brewmap)
+    folium.Marker(
+        location=[42.3601, -71.0589],
+        popup='Harpoon IPA',
+        icon=folium.Icon(icon='beer', prefix='fa')
+    ).add_to(brewmap)
+    folium.Marker(
+        location=[40.4259, -86.9081],
+        popup='Abel\'s IPA',
+        icon=folium.Icon(icon='beer', prefix='fa')
+    ).add_to(brewmap)
+
+    return brewmap._repr_html_()
 
 
 @app.route('/add', methods=['GET', 'POST'])
@@ -83,4 +102,4 @@ def addBrew():
 
 
 if __name__=='__main__':
-    app.run(debug=False)
+    app.run(debug=True)
